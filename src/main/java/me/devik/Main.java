@@ -2,7 +2,6 @@ package me.devik;
 
 import me.devik.systemManager.SystemManager;
 
-import java.util.Scanner;
 
 public class Main {
     public static SystemManager manager = new SystemManager();
