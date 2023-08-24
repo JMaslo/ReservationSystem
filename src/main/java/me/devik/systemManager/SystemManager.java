@@ -2,8 +2,10 @@ package me.devik.systemManager;
 
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -29,17 +31,22 @@ public class SystemManager {
 
 
 
-
     }
 
-    public void YamlParser() {
+    public void checkAvailability() {
         try {
-            String yamlFilePath = "configuration/data.yaml";
+            InputStream inputStream = new FileInputStream(new File("configuration/data.yaml")); // Fix this path bug
             Yaml yaml = new Yaml();
-            FileInputStream inputStream = new FileInputStream(yamlFilePath);
             Map<String, Object> yamlData = yaml.load(inputStream);
 
-            // From every room load data
+            for (Map.Entry<String, Object> entry : yamlData.entrySet()) {
+                String roomName = entry.getKey();
+                Map<String, Object> roomDetail = (Map<String, Object>) entry.getValue();
+
+                int peopleAmount = (int) roomDetail.get("people_amount");
+                System.out.println("Room: " + roomName);
+                System.out.println("People in one room: " + peopleAmount);
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
