@@ -45,7 +45,7 @@ public class SystemManager {
 
                 int peopleAmount = (int) roomDetail.get("people_amount");
                 System.out.println("Room: " + roomName);
-                System.out.println("People in one room: " + peopleAmount);
+                System.out.println("People in one room: " + peopleAmount); // Only some staff
             }
 
         } catch (FileNotFoundException e) {
