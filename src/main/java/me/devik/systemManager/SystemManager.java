@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 public class SystemManager {
 
-    public void chooseRoom() {
+    public void checkAvailability() {
         Scanner sc = new Scanner(System.in);
-
 
         System.out.println("Enter the amount of people: ");
         int people = sc.nextInt(); // Save the number of people
+
 
         System.out.println("Enter the amount of night: ");
         int nights = sc.nextInt(); // Save the amount of nights
@@ -29,11 +29,6 @@ public class SystemManager {
         String lunch_dinner = sc.next();
         boolean lunch_dinner_bool = Boolean.parseBoolean(lunch_dinner);
 
-
-
-    }
-
-    public void checkAvailability() {
         try {
             File file = new File("src/main/resources/data.yaml");
             InputStream inputStream = new FileInputStream(file);
@@ -45,9 +40,14 @@ public class SystemManager {
                 Map<String, Object> roomDetail = (Map<String, Object>) entry.getValue();
 
                 int peopleAmount = (int) roomDetail.get("people_amount");
-                System.out.println("Room: " + roomName);
-                System.out.println("People in one room: " + peopleAmount); // Only some staff
+
+                if (people == peopleAmount) {
+                    System.out.println("You have this possibility: " + roomName);
+                }
+
             }
+
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

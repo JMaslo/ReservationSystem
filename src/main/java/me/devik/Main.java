@@ -14,7 +14,6 @@ public class Main {
         System.out.println("We would be happy if you will continue :)");
         System.out.println("-----------------------");
 
-        // manager.chooseRoom();
         manager.checkAvailability();
 
     }
