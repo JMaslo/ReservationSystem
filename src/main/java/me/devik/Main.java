@@ -13,10 +13,8 @@ public class Main {
         System.out.println("-----------------------");
 
         manager.checkAvailability();
-        System.out.println("-----------------------");
-        System.out.println("We have reserved your room.");
-        System.out.println("Thanks for using this program :).");
-        System.out.println("-----------------------");
+
+
 
     }
 

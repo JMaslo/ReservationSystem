@@ -17,6 +17,11 @@ public class SystemManager {
         System.out.println("Enter the amount of people: ");
         int people = sc.nextInt(); // Save the number of people
 
+        if (!(people > 1 && people < 6)) {
+            System.out.println("You cannot be less than 1 and more than 5!");
+            return;
+        }
+
         System.out.println("Enter the amount of night: ");
         int nights = sc.nextInt(); // Save the amount of nights
 
@@ -43,12 +48,14 @@ public class SystemManager {
                 boolean food_breakfast = (boolean) roomDetail.get("breakfast");
                 boolean food_lunch_dinner = (boolean) roomDetail.get("lunch_dinner");
 
+
                 if (people == peopleAmount && breakfast_bool == food_breakfast && lunch_dinner_bool == food_lunch_dinner) { // And ....
-                    System.out.println("You could have one of these rooms: " + roomName);
+                    System.out.println("You can have this room: " + roomName);
                     System.out.println("Here you have your total price for " + nights + " nights: " + nights * total_price);
-                    return;
-                } else {
-                    System.out.println("We don't have any available room for you, sorry.");
+                    System.out.println("-----------------------");
+                    System.out.println("We have reserved your room.");
+                    System.out.println("Thanks for using this program :).");
+                    System.out.println("-----------------------");
                     return;
                 }
             }
@@ -56,4 +63,6 @@ public class SystemManager {
             e.printStackTrace();
         }
     }
+
 }
+
