@@ -1,0 +1,40 @@
+room_001:
+  people_amount: 3
+  breakfast: true
+  lunch_dinner: false
+room_002:
+  people_amount: 2
+  breakfast: true
+  lunch_dinner: true
+room_003:
+  people_amount: 5
+  breakfast: true
+  lunch_dinner: false
+room_004:
+  people_amount: 4
+  breakfast: true
+  lunch_dinner: false
+room_005:
+  people_amount: 2
+  breakfast: true
+  lunch_dinner: true
+room_006:
+  people_amount: 5
+  breakfast: true
+  lunch_dinner: true
+room_007:
+  people_amount: 2
+  breakfast: true
+  lunch_dinner: true
+room_008:
+  people_amount: 3
+  breakfast: true
+  lunch_dinner: true
+room_009:
+  people_amount: 3
+  breakfast: true
+  lunch_dinner: true
+room_010:
+  people_amount: 4
+  breakfast: true
+  lunch_dinner: true

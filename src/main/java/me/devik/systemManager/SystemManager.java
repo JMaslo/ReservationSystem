@@ -35,7 +35,8 @@ public class SystemManager {
 
     public void checkAvailability() {
         try {
-            InputStream inputStream = new FileInputStream(new File("configuration/data.yaml")); // TODO: Fix this path bug
+            File file = new File("src/main/resources/data.yaml");
+            InputStream inputStream = new FileInputStream(file);
             Yaml yaml = new Yaml();
             Map<String, Object> yamlData = yaml.load(inputStream);
 
