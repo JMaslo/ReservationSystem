@@ -17,7 +17,6 @@ public class SystemManager {
         System.out.println("Enter the amount of people: ");
         int people = sc.nextInt(); // Save the number of people
 
-
         System.out.println("Enter the amount of night: ");
         int nights = sc.nextInt(); // Save the amount of nights
 
@@ -40,15 +39,19 @@ public class SystemManager {
                 Map<String, Object> roomDetail = (Map<String, Object>) entry.getValue();
 
                 int peopleAmount = (int) roomDetail.get("people_amount");
+                int total_price = (int) roomDetail.get("price_night");
+                boolean food_breakfast = (boolean) roomDetail.get("breakfast");
+                boolean food_lunch_dinner = (boolean) roomDetail.get("lunch_dinner");
 
-                if (people == peopleAmount) {
-                    System.out.println("You have this possibility: " + roomName);
+                if (people == peopleAmount && breakfast_bool == food_breakfast && lunch_dinner_bool == food_lunch_dinner) { // And ....
+                    System.out.println("You could have one of these rooms: " + roomName);
+                    System.out.println("Here you have your total price for " + nights + " nights: " + nights * total_price);
+                    return;
+                } else {
+                    System.out.println("We don't have any available room for you, sorry.");
+                    return;
                 }
-
             }
-
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -1,40 +1,50 @@
 room_001:
   people_amount: 3
+  price_night: 60
   breakfast: true
   lunch_dinner: false
 room_002:
   people_amount: 2
+  price_night: 40
   breakfast: true
   lunch_dinner: true
 room_003:
   people_amount: 5
+  price_night: 100
   breakfast: true
   lunch_dinner: false
 room_004:
   people_amount: 4
+  price_night: 80
   breakfast: true
   lunch_dinner: false
 room_005:
   people_amount: 2
+  price_night: 40
   breakfast: true
   lunch_dinner: true
 room_006:
   people_amount: 5
+  price_night: 100
   breakfast: true
   lunch_dinner: true
 room_007:
   people_amount: 2
+  price_night: 40
   breakfast: true
   lunch_dinner: true
 room_008:
   people_amount: 3
-  breakfast: true
+  price_night: 60
+  breakfast: false
   lunch_dinner: true
 room_009:
   people_amount: 3
-  breakfast: true
+  price_night: 60
+  breakfast: false
   lunch_dinner: true
 room_010:
   people_amount: 4
+  price_night: 80
   breakfast: true
   lunch_dinner: true
