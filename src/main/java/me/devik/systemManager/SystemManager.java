@@ -52,10 +52,22 @@ public class SystemManager {
                 if (people == peopleAmount && breakfast_bool == food_breakfast && lunch_dinner_bool == food_lunch_dinner) { // And ....
                     System.out.println("You can have this room: " + roomName);
                     System.out.println("Here you have your total price for " + nights + " nights: " + nights * total_price);
-                    System.out.println("-----------------------");
-                    System.out.println("We have reserved your room.");
-                    System.out.println("Thanks for using this program :).");
-                    System.out.println("-----------------------");
+                    System.out.println("Do you want to reserve it? true/false");
+                    String reservation = sc.next();
+                    boolean reservation_bool = Boolean.parseBoolean(reservation);
+
+                    if (reservation_bool) {
+                        System.out.println("-----------------------");
+                        System.out.println("We have reserved your room.");
+                        System.out.println("Thanks for using this program :).");
+                        System.out.println("-----------------------");
+                        return;
+                    } else {
+                        System.out.println("-----------------------");
+                        System.out.println("We are not going to reserve this room.");
+                        System.out.println("Thanks for using this program :).");
+                        System.out.println("-----------------------");
+                    }
                     return;
                 }
             }
