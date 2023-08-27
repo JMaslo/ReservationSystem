@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class SystemManager {
 
-    public void checkAvailability() {
+    public void reserveRoom() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the amount of people: ");
@@ -67,14 +67,13 @@ public class SystemManager {
                         System.out.println("We are not going to reserve this room.");
                         System.out.println("Thanks for using this program :).");
                         System.out.println("-----------------------");
+                        return;
                     }
-                    return;
                 }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 }
 
