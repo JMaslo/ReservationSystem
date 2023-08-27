@@ -14,6 +14,8 @@ public class Main {
 
         manager.reserveRoom();
 
+        // TODO: EUR to DOLLAR? CZK? ... What's the rate?
+
     }
 
 

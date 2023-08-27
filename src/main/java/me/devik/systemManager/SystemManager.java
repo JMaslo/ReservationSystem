@@ -10,12 +10,20 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class SystemManager {
+    public int people;
+    public int nights;
+    public float rating;
+    public Boolean breakfast;
+    public Boolean reservation;
+    public Boolean lunch_dinner;
+    File file = new File("src/main/resources/data.yaml");
+    Yaml yaml = new Yaml();
 
     public void reserveRoom() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the amount of people: ");
-        int people = sc.nextInt(); // Save the number of people
+        people = sc.nextInt(); // Save the number of people
 
         if (!(people > 1 && people < 6)) {
             System.out.println("You cannot be less than 1 and more than 5!");
@@ -23,20 +31,16 @@ public class SystemManager {
         }
 
         System.out.println("Enter the amount of night: ");
-        int nights = sc.nextInt(); // Save the amount of nights
+        nights = sc.nextInt(); // Save the amount of nights
 
         System.out.println("Do you want to include breakfast? true/false");
-        String breakfast = sc.next();
-        boolean breakfast_bool = Boolean.parseBoolean(breakfast);
+        breakfast = Boolean.parseBoolean(sc.next());
 
         System.out.println("Do you want to include lunch and dinner? true/false");
-        String lunch_dinner = sc.next();
-        boolean lunch_dinner_bool = Boolean.parseBoolean(lunch_dinner);
+        lunch_dinner = Boolean.parseBoolean(sc.next());
 
         try {
-            File file = new File("src/main/resources/data.yaml");
             InputStream inputStream = new FileInputStream(file);
-            Yaml yaml = new Yaml();
             Map<String, Object> yamlData = yaml.load(inputStream);
 
             for (Map.Entry<String, Object> entry : yamlData.entrySet()) {
@@ -49,14 +53,15 @@ public class SystemManager {
                 boolean food_lunch_dinner = (boolean) roomDetail.get("lunch_dinner");
 
 
-                if (people == peopleAmount && breakfast_bool == food_breakfast && lunch_dinner_bool == food_lunch_dinner) { // And ....
+                if (people == peopleAmount && breakfast == food_breakfast && lunch_dinner == food_lunch_dinner) { // And ....
                     System.out.println("You can have this room: " + roomName);
-                    System.out.println("Here you have your total price for " + nights + " nights: " + nights * total_price);
+                    System.out.println("In what currency you want the total price? Write the rate of the currency, please:");
+                    rating = Float.parseFloat(sc.next());
+                    System.out.println("Here you have your total price for " + nights + " nights: " + nights * total_price + " €");
                     System.out.println("Do you want to reserve it? true/false");
-                    String reservation = sc.next();
-                    boolean reservation_bool = Boolean.parseBoolean(reservation);
+                    reservation = Boolean.parseBoolean(sc.next());
 
-                    if (reservation_bool) {
+                    if (reservation) {
                         System.out.println("-----------------------");
                         System.out.println("We have reserved your room.");
                         System.out.println("Thanks for using this program :).");
@@ -76,4 +81,3 @@ public class SystemManager {
         }
     }
 }
-
